@@ -1,4 +1,4 @@
-package mx.com.alex.crazycards;
+package mx.com.alex.crazycards.activities;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.FragmentManager;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import mx.com.alex.crazycards.models.Word;
+import mx.com.alex.crazycards.R;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -48,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     /*   @Override
-    public void onStartSelected(Word word) {
+    public void onStartSelected(Verb word) {
         getSupportFragmentManager().beginTransaction().addToBackStack(null)
                 .replace(R.id.container, CityFragment.newInstance(word))
                 .commit();
