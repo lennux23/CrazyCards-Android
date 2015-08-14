@@ -3,7 +3,7 @@ package mx.com.alex.crazycards.models;
 /**
  * Created by mobilestudio06 on 11/08/15.
  */
-public class Word {
+public class Verb {
 
     private String verbEnglish;
     private String verbSpanish;
