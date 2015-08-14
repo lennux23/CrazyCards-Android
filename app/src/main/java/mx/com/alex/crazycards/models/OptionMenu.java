@@ -35,7 +35,7 @@ public class OptionMenu {
         this.nameOption = nameOption;
     }
 
-    public ArrayList<OptionMenu> getMenu(Context context){
+    public static ArrayList<OptionMenu> getMenu(Context context){
         ArrayList<OptionMenu> option = new ArrayList<OptionMenu>();
 
         option.add(new OptionMenu(context.getResources().getDrawable(R.mipmap.ic_home),context.getString(R.string.menu_home)));
