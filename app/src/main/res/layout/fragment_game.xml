@@ -15,7 +15,7 @@
             android:layout_height="match_parent"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/word"
-            android:id="@+id/textView"
+            android:id="@+id/txtHeader"
             android:textSize="@dimen/text_title"
             android:paddingLeft="@dimen/padding_medium"
             android:paddingTop="@dimen/padding_small"
@@ -41,7 +41,7 @@
                 android:layout_height="match_parent"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/verb"
-                android:id="@+id/textVerb"
+                android:id="@+id/txtVerb"
                 android:textSize="@dimen/text_title"
                 android:textColor="@android:color/white"
                 android:gravity="center"
@@ -59,6 +59,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
+                android:id="@+id/layoutOne"
+                android:orientation="horizontal"
                 >
 
             </LinearLayout>
@@ -67,6 +69,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/black"
+                android:id="@+id/layoutTwo"
+                android:orientation="horizontal"
                 >
 
             </LinearLayout>
@@ -84,6 +88,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/black"
+                android:id="@+id/layoutThree"
+                android:orientation="horizontal"
                >
 
             </LinearLayout>
@@ -92,6 +98,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
+                android:id="@+id/layoutFour"
+                android:orientation="horizontal"
                 >
 
             </LinearLayout>
@@ -101,9 +109,24 @@
             android:layout_width="100dp"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/secondary_green">
+
+            android:layout_gravity="center"
+            >
+
+            <Button
+                android:layout_width="10dp"
+                android:layout_height="60dp"
+                android:text="Check"
+                android:id="@+id/btCheck"
+                android:layout_gravity="center"
+                android:background="@color/light_green"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/abc_action_bar_content_inset_material"
+                android:layout_weight="1" />
 
         </LinearLayout>
+
+
 
     </LinearLayout>
 

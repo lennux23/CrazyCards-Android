@@ -28,8 +28,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL("CREATE TABLE Verb (" +
-                "    verbEnglish varchar (100) NOT NULL  PRIMARY KEY," +
-                "    verbSpanish varchar (100) NOT NULL" +
+                "    idVerb integer NOT NULL  PRIMARY KEY," +
+                "    verbEnglish varchar (100) NOT NULL ," +
+                "    verbSpanish varchar (100) NOT NULL , " +
                 "    urlImgTrue varchar(250) NOT NULL" +
                 ");");
     }
