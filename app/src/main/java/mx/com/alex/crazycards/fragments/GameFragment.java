@@ -1,6 +1,9 @@
 package mx.com.alex.crazycards.fragments;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -96,15 +100,16 @@ public class GameFragment extends Fragment {
     }
 
 
-    private void showVerb (){
+    private void showVerb () throws IOException {
         // Random number from 1 to 15
         Random r = new Random();
         int i1 = r.nextInt(1 - 1) + 1;
 
         Verb verb = verbs.get(i1);
-        verbEnglish.setText( verb.getVerbEnglish());
-        //layoutOne.setBackground();
+        verbEnglish.setText(verb.getVerbEnglish());
+        Drawable imagen = new BitmapDrawable(getActivity().getResources(),Picasso.with(getActivity()).load(verb.getUrlImgTrue()).get());
+        layoutOne.setBackgroundDrawable(imagen);
 
-       // Picasso.with(getActivity()).load(verb.getUrlImgTrue()).into(layoutOne);
+
     }
 }
