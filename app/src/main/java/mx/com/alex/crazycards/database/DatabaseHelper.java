@@ -1,4 +1,5 @@
 package mx.com.alex.crazycards.database;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
@@ -16,7 +17,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "GameVerbs.db";
     private static final Integer VER_1 = 1;
-    private static final Integer DATABASE_VERSION = VER_1;
+    private static final Integer VER_2 = 2;
+    private static final Integer DATABASE_VERSION = VER_2;
     private Context context;
 
     public DatabaseHelper(Context context){
@@ -33,6 +35,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "    verbSpanish varchar (100) NOT NULL , " +
                 "    urlImgTrue varchar(250) NOT NULL" +
                 ");");
+
+
+        db.execSQL("CREATE TABLE ImagesVerbs (" +
+                "    idVerb integer NOT NULL  PRIMARY KEY," +
+                "    ima1 varchar (100) NOT NULL ," +
+                "    verbSpanish varchar (100) NOT NULL , " +
+                "    urlImgTrue varchar(250) NOT NULL" +
+                ");");
+
+
+
+        //db.execSQL("INSERT INTO Verb (idVerb,verbEnglish, verbSpanish,urlImgTrue) VALUES (1,'Broke Down','Descomponer', 'http://1.bp.blogspot.com/-Q3rbiEUs_sc/UpIiW_GqneI/AAAAAAAAFuM/oulyN5lEbjU/s1600/car+broken+down.jpg');");
+
+        boolean createSuccessful = false;
+
+       ContentValues values = new ContentValues();
+        values.put("verbEnglish","Broke Down");
+        values.put("verbSpanish","Descomponer");
+        values.put("urlImgTrue","http://1.bp.blogspot.com/-Q3rbiEUs_sc/UpIiW_GqneI/AAAAAAAAFuM/oulyN5lEbjU/s1600/car+broken+down.jpg");
+        long code = db.insert("Verb",null,values );
+        Log.v("Insert", String.valueOf(code));
+
     }
 
     @Override

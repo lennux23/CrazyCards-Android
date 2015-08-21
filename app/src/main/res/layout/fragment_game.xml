@@ -42,7 +42,7 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/verb"
                 android:id="@+id/txtVerb"
-                android:textSize="@dimen/text_title"
+                android:textSize="@dimen/text_title2"
                 android:textColor="@android:color/white"
                 android:gravity="center"
                 />
@@ -54,17 +54,18 @@
             android:layout_weight="1"
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
-            <LinearLayout
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@android:color/darker_gray"
                 android:id="@+id/layoutOne"
+                android:src ="@mipmap/ic_home"
                 android:orientation="horizontal"
                 >
 
-            </LinearLayout>
-            <LinearLayout
+            </ImageView>
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -73,7 +74,7 @@
                 android:orientation="horizontal"
                 >
 
-            </LinearLayout>
+            </ImageView>
 
         </LinearLayout>
         <LinearLayout
@@ -83,7 +84,7 @@
             android:orientation="horizontal"
             android:layout_gravity="center_horizontal">
 
-            <LinearLayout
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -92,8 +93,8 @@
                 android:orientation="horizontal"
                >
 
-            </LinearLayout>
-            <LinearLayout
+            </ImageView>
+            <ImageView
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -102,7 +103,7 @@
                 android:orientation="horizontal"
                 >
 
-            </LinearLayout>
+            </ImageView>
 
         </LinearLayout>
         <LinearLayout

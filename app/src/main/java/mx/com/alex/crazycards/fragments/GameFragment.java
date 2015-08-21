@@ -6,10 +6,12 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -23,18 +25,15 @@ import mx.com.alex.crazycards.R;
 import mx.com.alex.crazycards.models.Verb;
 
 
-public class GameFragment extends Fragment {
+public class GameFragment extends Fragment implements  View.OnClickListener{
 
     private ArrayList<Verb> verbs;
     TextView verbEnglish;
-    LinearLayout layoutOne;
-    LinearLayout layoutTwo;
-    LinearLayout layoutThree;
-    LinearLayout layoutFour;
+    ImageView layoutOne;
+    ImageView layoutTwo;
+    ImageView layoutThree;
+    ImageView layoutFour;
 
-    public GameFragment() {
-        // Required empty public constructor
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,15 +47,30 @@ public class GameFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_game, container, false);
         verbEnglish = (TextView) view.findViewById(R.id.txtVerb);
-        layoutOne = (LinearLayout) view.findViewById(R.id.layoutOne);
-        layoutTwo = (LinearLayout) view.findViewById(R.id.layoutTwo);
-        layoutThree = (LinearLayout) view.findViewById(R.id.layoutThree);
-        layoutFour= (LinearLayout) view.findViewById(R.id.layoutFour);
+        layoutOne = (ImageView) view.findViewById(R.id.layoutOne);
+        layoutTwo = (ImageView) view.findViewById(R.id.layoutTwo);
+        layoutThree = (ImageView) view.findViewById(R.id.layoutThree);
+        layoutFour= (ImageView) view.findViewById(R.id.layoutFour);
+
+        layoutOne.setOnClickListener(this);
 
 
-
+        try {
+            showVerb();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.layoutOne:
+                break;
+        }
+
     }
 
     /*
@@ -103,13 +117,13 @@ public class GameFragment extends Fragment {
     private void showVerb () throws IOException {
         // Random number from 1 to 15
         Random r = new Random();
-        int i1 = r.nextInt(1 - 1) + 1;
-
-        Verb verb = verbs.get(i1);
+        int i1 = r.nextInt(2 - 1) + 1;
+        Log.v("RAM", String.valueOf(i1));
+        Verb verb = verbs.get(i1-1);
         verbEnglish.setText(verb.getVerbEnglish());
-        Drawable imagen = new BitmapDrawable(getActivity().getResources(),Picasso.with(getActivity()).load(verb.getUrlImgTrue()).get());
-        layoutOne.setBackgroundDrawable(imagen);
-
+       // Drawable imagen = new BitmapDrawable(getActivity().getResources(),Picasso.with(getActivity()).load(verb.getUrlImgTrue()).get());
+        Picasso.with(getActivity()).load(verb.getUrlImgTrue()).into(layoutOne);
+        Log.v("verstring", verb.getUrlImgTrue());
 
     }
 }
